@@ -1,10 +1,10 @@
 ---
 title: "GAMA Model Documentation"
-author: "Srirama Bhamidipati"
-date: "2018-03-21"
+author: "SS"
+date: "2018-03-27"
 cover-image: cover.png
 output:
-  bookdown::gitbook: 
+  bookdown::gitbook:
     lib_dir: "book_assets"
     css: style.css
     config:
@@ -13,15 +13,7 @@ output:
       toc:
         collapse: section
         scroll_highlight: false
-  bookdown::pdf_book:
-    keep_tex: yes
-    includes:
-      in_header: preamble.tex
-    latex_engine: pdflatex
-    citation_package: natbib
-  bookdown::html_book:
-    css: style.css
-  bookdown::epub_book: default
+      download: ["book.pdf", "book.epub"]
 site: bookdown::bookdown_site
 documentclass: book
 description: "Document describing the GAMA model and its functions."

@@ -1,18 +1,19 @@
 ---
-title: "GAMA Model Documentations"
+title: "GAMA Model Documentation"
 author: "SS"
-date: "`r Sys.Date()`"
+date: "2018-03-27"
 cover-image: cover.png
-output: 
+output:
   bookdown::gitbook:
     lib_dir: "book_assets"
     css: style.css
     config:
       sharing: null
+      edit: https://github.com/AMS-CSL/ModelDoc/edit/master/%s
       toc:
         collapse: section
         scroll_highlight: false
-    download: ["book.pdf", "book.epub"]
+      download: ["book.pdf", "book.epub"]
 site: bookdown::bookdown_site
 documentclass: book
 description: "Document describing the GAMA model and its functions."
@@ -60,3 +61,6 @@ The Parool  also looked at these issues but can only reiterate that while the ne
 The cyber expert also doubts that ‘great haystacks of information’ will help defeat terrorism. ‘French intelligence services have the most far-reaching powers in Europe and yet most attacks happened on French soil,’ he said. ‘Digital information on its own will not prevent attacks. But if terrorists are using coded apps… it would limit the work of the intelligence services if they are not allowed to look at that,’ the paper quotes him as saying.
 
 Read more at DutchNews.nl: As Dutch vote in referendum, poll shows older people back new internet tapping laws http://www.dutchnews.nl/news/archives/2018/03/as-dutch-vote-in-referendum-poll-shows-older-people-back-new-internet-tapping-laws/
+
+<!--chapter:end:index.Rmd-->
+
