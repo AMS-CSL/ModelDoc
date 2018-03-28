@@ -18,7 +18,9 @@ documentclass: book
 description: "Document describing the GAMA model and its functions."
 ---
 
-
+```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), }
+knitr::include_graphics('cover.png', dpi = NA)
+```
 
 # Species
 
