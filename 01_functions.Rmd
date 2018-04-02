@@ -1,0 +1,3 @@
+# Functions
+
+This chapter will list all the functions used in this \index{model}. 

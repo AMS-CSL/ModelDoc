@@ -1,6 +1,6 @@
 ---
 title: "GAMA Model Documentations"
-author: "SS"
+author: "Srirama Bhamidipati"
 date: "`r Sys.Date()`"
 cover-image: cover.png
 output: 
@@ -11,8 +11,8 @@ output:
       sharing: null
       toc:
         collapse: section
-        scroll_highlight: false
-    download: ["book.pdf", "book.epub"]
+        scroll_highlight: true
+    download: ["book.pdf", "book.epub", "book.mobi"]
 site: bookdown::bookdown_site
 documentclass: book
 description: "Document describing the GAMA model and its functions."
@@ -24,8 +24,11 @@ knitr::include_graphics('cover.png', dpi = NA)
 
 # Species
 
+\
+
 <blockqoute id=bq_warn> This is class css </blockqoute>
 
+\
 
 
 Dutch nationals can today vote in what is likely to be the last referendum for some time – whether or not to give far-reaching powers to the two security services to gather information, particularly via phone and internet taps. The law is due to come into effect in May and has already been passed by both houses of parliament. Nevertheless, over 400,000 people signed a petition calling for a referendum, hence today’s vote. The referendum is advisory and comes a month after the government agreed to abolish the principle of advisory referendums altogether. However, home affairs minister Kajsa Ollongren has already promised to ‘take the result seriously’. An opinion poll published by current affairs show EenVandaag on Tuesday suggests that a majority of voters are likely to vote in favour of the legislation. Some 53% of people who said they are likely to vote, now plan to vote yes. But the result is divided sharply along age lines, with 60% of people over the age of 55 planning to vote in favour, compared with 41% of the under-35s. 
@@ -43,11 +46,7 @@ reflex aname when:(x=10){
 ```
 
 
-# Functions 
 
-
-
-Most of the Dutch papers have now published lengthy articles examining the pros and cons of the new legislation. Wednesday’s referendum was initiated by five students from Amsterdam, whose four main issues with the new law are examined by Trouw. The students say the law will allow the state to listen in on entire neighbourhoods, hence the name ‘dragnet law’. But, says Trouw, the law only allows the ‘tapping, taping and listening in’ of people who are a danger to national security and the home affairs minister will have to approve the taps. Data belonging to anyone caught up inadvertently must be removed as quickly as possible, Trouw says, adding that the home affairs minister considers the law contains enough guarantees to prevent indiscriminate tapping. 
 
 # Reflexes 
 
