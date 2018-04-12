@@ -24,7 +24,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={GAMA Model Documentations},
+            pdftitle={GAMA Model Documentation},
             pdfauthor={Srirama Bhamidipati, Erika S, Arend L},
             pdfborder={0 0 0},
             breaklinks=true}
@@ -116,7 +116,7 @@
 }
 
 \setlength{\droptitle}{-2em}
-  \title{GAMA Model Documentations}
+  \title{GAMA Model Documentation}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
   \author{Srirama Bhamidipati, Erika S, Arend L}
@@ -150,22 +150,125 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\hypertarget{background}{%
+\chapter*{Background}\label{background}}
+\addcontentsline{toc}{chapter}{Background}
+
+It is expected that in 2030 about 5 billion people will live in cities
+as compared to the 3.6 billion now. This massive growth challenges the
+liveability of urban environments. Designing sustainable cities
+attractive to tourists, industry and commercial organizations as well as
+pleasant to live in, requires a thorough understanding of urban dynamics
+and the role of individual and collective human decision- making within
+this
+
 \hypertarget{introduction}{%
 \chapter{Introduction}\label{introduction}}
 
+Cities like other complex adaptive systems commonly develop in an
+open-ended and often unexpected way with neighborhoods and urban
+populations in constant development. These urban dynamics exhibit many
+wicked problems in which the issue at hand as well the potential
+solutions are strongly dependent on the perspectives of the multitude of
+stakeholders involved.
+
+Conflicting use-patterns among city users impact a multitude of urban
+quality indicators and result in specific spatial-temporal patterns and
+conflicts (Fig. 1). Currently, our understanding of these complex
+processes remains limited and even more so our capacity to anticipate
+these complex developments.
+
+\hypertarget{objective}{%
+\section{Objective}\label{objective}}
+
+Against this backgound the objective of the City Simulation Lab is:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  To develop a City Simulator toolbox including various agent-based
+  models of urban systems
+\item
+  To increase our current understanding of complex urban processes
+  leading to specific spatial-temporal patterns through simulation of
+  urban systems through the implementation of the agent-based simulation
+  toolbox.
+\item
+  To improve the capacity to anticipate complex urban dynamics through
+  interactive participatory workshops developing and implementing a
+  Participatory Urban Modelling (PUM) framework.
+\end{enumerate}
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\hypertarget{case-tourism-expansion-in-amsterdam}{%
+\subsection{Case: Tourism expansion in
+Amsterdam}\label{case-tourism-expansion-in-amsterdam}}
+
+Amsterdam has seen a steep 40\% increase in tourists in just five years,
+with currently 17 million people visiting the city on annual basis. This
+strong increase impacts the liveability of the city and causes conflicts
+among different users of the city.
+
+\hypertarget{participatory-urban-modelling-pum}{%
+\subsection{Participatory Urban Modelling
+(PUM)}\label{participatory-urban-modelling-pum}}
+
+In order to include the different perspectives of local stakeholders, we
+developed a Participatory Urban Modelling (PUM) framework. Within this
+cyclic process researchers and stakeholders actively collaborate in the
+development of the City Simulator toolbox through a combination of
+(simulation) games (Fig.2). Through interactive gaming workshops,
+stakeholders collectively define potential policy changes and explore
+the impacts on quality indicators and spatial conflicts.
+
+\begin{figure}
+\centering
+\includegraphics{images/scheme.png}
+\caption{``PUM''}
+\end{figure}
+
+\hypertarget{imports}{%
+\chapter{Imports}\label{imports}}
+
+\hypertarget{species}{%
+\chapter{Species}\label{species}}
+
+The model has 4 species {[}inhabitants, buildings, roads, public
+transport system{]}
+
+\hypertarget{road}{%
+\section{road}\label{road}}
+
+This species is imported from a shapefile. The attributes of this
+shapefile are imported and mapped into various model variables - as
+attributes of the road species.
+
+\begin{figure}
+\centering
+\includegraphics{images/network.png}
+\caption{``Road Network''}
+\end{figure}
+
+\hypertarget{buildings}{%
+\section{buildings}\label{buildings}}
+
+This species is imported froma shapefile. The attributes of this
+shapefile are imported and mapped into various model variables - as
+attributes of the building species. The main classification of buildings
+is based on its usage. Curerntly the model only distinguishes between
+{[}office, home{]}.
+
+\begin{figure}
+\centering
+\includegraphics{images/buildings.png}
+\caption{``Buildings''}
+\end{figure}
+
 \hypertarget{functions}{%
 \chapter{Functions}\label{functions}}
-
-This chapter will list all the functions used in this \index{model}.
-
-\hypertarget{displays}{%
-\chapter{Displays}\label{displays}}
-
-\hypertarget{experiment}{%
-\chapter{Experiment}\label{experiment}}
-
-\hypertarget{functions-1}{%
-\chapter{Functions}\label{functions-1}}
 
 \hypertarget{update_mode_specific_memory}{%
 \section{update\_mode\_specific\_memory()}\label{update_mode_specific_memory}}
@@ -173,7 +276,7 @@ This chapter will list all the functions used in this \index{model}.
 Agent memory on travel time is updated every day based on its experience
 today. The agent uses last five days of memory to estimate the next days
 travel time. This memory is mode specific. In this model, agent has 4
-memories {[}walk, bike, pt, car{]}.
+memories {[}walk, bike, pt, car{]}. \index{update! update memory}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -227,45 +330,117 @@ memories {[}walk, bike, pt, car{]}.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{imports}{%
-\chapter{Imports}\label{imports}}
+\hypertarget{evening_movement}{%
+\section{evening\_movement()}\label{evening_movement}}
+
+This function makes the agent move from office to home in the evening.
+\index{movement! evening}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{action evening_movement}
+\NormalTok{    \{}
+        \KeywordTok{float}\NormalTok{ my_speed <- mode_speed_int}\OtherTok{[}\NormalTok{self.value_mode_actual}\OtherTok{]} \OtherTok{;}\CommentTok{// # m / # sec;}
+        \KeywordTok{do} \KeywordTok{goto}\NormalTok{ target: any_location_in}\OtherTok{(}\NormalTok{my_home}\OtherTok{)}\NormalTok{ on: g speed: my_speed}\OtherTok{;}
+        \KeywordTok{if}\NormalTok{ the_target = location}
+\NormalTok{        \{}
+\NormalTok{            my_evening_home_arrive_time <- current_date}\OtherTok{;}
+\NormalTok{        \}}
+
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{arguments-1}{%
+\subsection*{arguments}\label{arguments-1}}
+\addcontentsline{toc}{subsection}{arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  none
+\end{itemize}
+
+\hypertarget{returns-1}{%
+\subsection*{returns}\label{returns-1}}
+\addcontentsline{toc}{subsection}{returns}
+
+\begin{itemize}
+\tightlist
+\item
+  nothing
+\end{itemize}
+
+\hypertarget{usage-1}{%
+\subsection*{usage}\label{usage-1}}
+\addcontentsline{toc}{subsection}{usage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\KeywordTok{do}\NormalTok{ evening_movement}\OtherTok{;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{morning_movement}{%
+\section{morning\_movement()}\label{morning_movement}}
+
+This function makes the agent move from office to home in the evening.
+\index{movement! morning}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{action evening_movement}
+\NormalTok{    \{}
+        \KeywordTok{float}\NormalTok{ my_speed <- mode_speed_int}\OtherTok{[}\NormalTok{self.value_mode_actual}\OtherTok{]} \OtherTok{;}\CommentTok{// # m / # sec;}
+        \KeywordTok{do} \KeywordTok{goto}\NormalTok{ target: any_location_in}\OtherTok{(}\NormalTok{my_home}\OtherTok{)}\NormalTok{ on: g speed: my_speed}\OtherTok{;}
+        \KeywordTok{if}\NormalTok{ the_target = location}
+\NormalTok{        \{}
+\NormalTok{            my_evening_home_arrive_time <- current_date}\OtherTok{;}
+\NormalTok{        \}}
+
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{arguments-2}{%
+\subsection*{arguments}\label{arguments-2}}
+\addcontentsline{toc}{subsection}{arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  none
+\end{itemize}
+
+\hypertarget{returns-2}{%
+\subsection*{returns}\label{returns-2}}
+\addcontentsline{toc}{subsection}{returns}
+
+\begin{itemize}
+\tightlist
+\item
+  nothing
+\end{itemize}
+
+\hypertarget{usage-2}{%
+\subsection*{usage}\label{usage-2}}
+\addcontentsline{toc}{subsection}{usage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{do}\NormalTok{ morning_movement}\OtherTok{;}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{reflexes}{%
 \chapter{Reflexes}\label{reflexes}}
 
-\hypertarget{species}{%
-\chapter{Species}\label{species}}
+\hypertarget{displays}{%
+\chapter{Displays}\label{displays}}
 
-The model has 4 species {[}inhabitants, buildings, roads, public
-transport system{]}
-
-\hypertarget{road}{%
-\section{road}\label{road}}
-
-This species is imported from a shapefile. The attributes of this
-shapefile are imported and mapped into various model variables - as
-attributes of the road species.
-
-\begin{figure}
-\centering
-\includegraphics{images/network.png}
-\caption{``Road Network''}
-\end{figure}
-
-\hypertarget{buildings}{%
-\section{buildings}\label{buildings}}
-
-This species is imported froma shapefile. The attributes of this
-shapefile are imported and mapped into various model variables - as
-attributes of the building species. The main classification of buildings
-is based on its usage. Curerntly the model only distinguishes between
-{[}office, home{]}.
-
-\begin{figure}
-\centering
-\includegraphics{images/buildings.png}
-\caption{``Buildings''}
-\end{figure}
+\hypertarget{experiment}{%
+\chapter{Experiment}\label{experiment}}
 
 \printindex
 

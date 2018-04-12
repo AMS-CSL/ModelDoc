@@ -1,0 +1,97 @@
+# Functions
+
+## update_mode_specific_memory()
+
+Agent memory on travel time is updated every day based on its experience today. The agent uses last five days of memory to estimate the next days travel time. This memory is mode specific. In this model, agent has 4 memories [walk, bike, pt, car]. \index{update! update memory}
+
+```php
+action update_mode_specific_memory (float tt, int mode)
+  {
+		//tt is morning_travel_time
+		add tt to:self.mode_specific_memory[mode];
+		remove index:0 from:self.mode_specific_memory[mode];
+		
+	}
+```
+
+### arguments {-}
+
+- travel time (`float`) : the travel time experienced in the recent trip
+- mode (`int`) : the mode used by the agent in recent trip
+
+### returns {-}
+
+- nothing : the function returns nothing, it just updates an existing variable.
+
+### usage {-}
+
+- the following example updates memory of mode 1 = walk.
+
+```php
+do update_mode_specific_memory(travel_time, 1)
+```
+
+
+## evening_movement()
+
+This function makes the agent move from office to home in the evening. \index{movement! evening}
+
+```php
+action evening_movement
+	{
+		float my_speed <- mode_speed_int[self.value_mode_actual] ;// # m / # sec;
+		do goto target: any_location_in(my_home) on: g speed: my_speed;
+		if the_target = location
+		{
+			my_evening_home_arrive_time <- current_date;
+		}
+
+	}
+```
+
+### arguments {-}
+
+- none
+
+### returns {-}
+
+- nothing
+
+### usage {-}
+
+```php
+
+do evening_movement;
+```
+
+
+## morning_movement()
+
+This function makes the agent move from office to home in the evening. \index{movement! morning}
+
+```php
+action evening_movement
+	{
+		float my_speed <- mode_speed_int[self.value_mode_actual] ;// # m / # sec;
+		do goto target: any_location_in(my_home) on: g speed: my_speed;
+		if the_target = location
+		{
+			my_evening_home_arrive_time <- current_date;
+		}
+
+	}
+```
+
+### arguments {-}
+
+- none
+
+### returns {-}
+
+- nothing
+
+### usage {-}
+
+```php
+do morning_movement;
+```
