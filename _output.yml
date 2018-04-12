@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">GAMA Model Documentation</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="www.wur.nl" target="blank">Published @ WUR</a></li>
     edit: https://github.com/AMS-CSL/ModelDoc/edit/master/%s
     download: ["pdf", "epub", "mobi"]
 bookdown::pdf_book:

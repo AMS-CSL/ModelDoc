@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
+<link rel="prev" href="reflexes.html">
 
-<link rel="next" href="functions.html">
 <script src="book_assets/jquery-2.2.3/jquery.min.js"></script>
 <link href="book_assets/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="book_assets/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -168,22 +168,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">GAMA Model Documentations</h1>
-<h4 class="author"><em>Srirama Bhamidipati, Erika S, Arend L</em></h4>
-<h4 class="date"><em>2018-04-12</em></h4>
+<div id="species" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Species</h1>
+<p>The model has 4 species [inhabitants, buildings, roads, public transport system]</p>
+<div id="road" class="section level2">
+<h2><span class="header-section-number">8.1</span> road</h2>
+<p>This species is imported from a shapefile. The attributes of this shapefile are imported and mapped into various model variables - as attributes of the road species.</p>
 </div>
-<div id="introduction" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<div id="buildings" class="section level2">
+<h2><span class="header-section-number">8.2</span> buildings</h2>
+<p>This species is imported froma shapefile. The attributes of this shapefile are imported and mapped into various model variables - as attributes of the building species. The main classification of buildings is based on its usage. Curerntly the model only distinguishes between [office, home].</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="reflexes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="functions.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="book_assets/gitbook-2.6.7/js/app.min.js"></script>
@@ -203,7 +207,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/AMS-CSL/ModelDoc/edit/master/index.Rmd",
+"link": "https://github.com/AMS-CSL/ModelDoc/edit/master/species.Rmd",
 "text": "Edit"
 },
 "download": ["GAMAModelDoc.pdf", "GAMAModelDoc.epub", "GAMAModelDoc.mobi"],

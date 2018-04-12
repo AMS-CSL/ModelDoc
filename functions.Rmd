@@ -1,0 +1,32 @@
+# Functions
+
+## update_mode_specific_memory()
+
+Agent memory on travel time is updated every day based on its experience today. The agent uses last five days of memory to estimate the next days travel time. This memory is mode specific. In this model, agent has 4 memories [walk, bike, pt, car].
+
+```php
+action update_mode_specific_memory (float tt, int mode)
+  {
+		//tt is morning_travel_time
+		add tt to:self.mode_specific_memory[mode];
+		remove index:0 from:self.mode_specific_memory[mode];
+		
+	}
+```
+
+### arguments {-}
+
+- travel time (`float`) : the travel time experienced in the recent trip
+- mode (`int`) : the mode used by the agent in recent trip
+
+### returns {-}
+
+- nothing : the function returns nothing, it just updates an existing variable.
+
+### usage {-}
+
+- the following example updates memory of mode 1 = walk.
+
+```php
+do update_mode_specific_memory(travel_time, 1)
+```
