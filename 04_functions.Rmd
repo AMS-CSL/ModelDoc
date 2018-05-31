@@ -2,7 +2,7 @@
 
 ## update_mode_specific_memory()
 
-Agent memory on travel time is updated every day based on its experience today. The agent uses last five days of memory to estimate the next days travel time. This memory is mode specific. In this model, agent has 4 memories [walk, bike, pt, car]. \index{update! update memory}
+Agent memory on travel time is updated every day based on its experience today. The agent uses last five days of memory to estimate the next days travel time. This memory is mode specific. In this model, agent has 4 memories [walk, bike, pt, car]. \index{Functions! update...! update memory}
 
 ```php
 action update_mode_specific_memory (float tt, int mode)
@@ -21,7 +21,7 @@ action update_mode_specific_memory (float tt, int mode)
 
 ### returns {-}
 
-- nothing : the function returns nothing, it just updates an existing variable.
+- empty
 
 ### usage {-}
 
@@ -34,7 +34,7 @@ do update_mode_specific_memory(travel_time, 1)
 
 ## evening_movement()
 
-This function makes the agent move from office to home in the evening. \index{movement! evening}
+This function makes the agent move from office to home in the evening. \index{Functions! movement...! evening}
 
 ```php
 action evening_movement
@@ -55,7 +55,7 @@ action evening_movement
 
 ### returns {-}
 
-- nothing
+- empty
 
 ### usage {-}
 
@@ -67,7 +67,7 @@ do evening_movement;
 
 ## morning_movement()
 
-This function makes the agent move from office to home in the evening. \index{movement! morning}
+This function makes the agent move from office to home in the evening. \index{Functions! movement...! morning}
 
 ```php
 action evening_movement
@@ -88,10 +88,102 @@ action evening_movement
 
 ### returns {-}
 
-- nothing
+- empty
+
+### usage {-}
+
+```Haskell
+do morning_movement;
+```
+
+## execute_a_behavior()
+
+This function executes a behavior depending on the return value from the function _choose\_behavior()_. \index{Functions! behavior...! execute}
+
+
+## choose_behavior()
+
+This function determines which of the four behaviours an agent should follow. This is based on the thresholds for the four quadrants in the consumat format. \index{Functions! behavior...! choose}
+
+```php
+string choose_behavior(float satisfaction_factor, float uncertainty_factor){
+
+		if (satisfaction_factor > 0.5) and (uncertainty_factor <= 0.5){
+			return "repeat";
+		} else if (satisfaction_factor > 0.5) and (uncertainty_factor > 0.5){
+			return "imitate";
+		} else if (satisfaction_factor <= 0.5) and (uncertainty_factor <= 0.5){
+			return "optimize";
+		}
+					
+		return "inquire";
+	}
+```
+
+### arguments {-}
+
+- It takes two arguments: satisfaction (`float`) and unertainty (`float`) as float values.
+
+### returns {-}
+
+- It returns a string among ["repeat", "imitate", "optimize", "inquire"]. 
 
 ### usage {-}
 
 ```php
-do morning_movement;
+behavior <- choose_behavior(float, float)
+```
+
+## get_morning_departure_time()
+
+This function is used to get a departure time for the agent to leave home to office for the purpose of work. \index{Functions! random...! get morning departure time} 
+
+### arguments {-}
+
+The function takes no arguments and defaults to 8 am in the morning with a deviation of half hour. The minutes are picked by a random number between 0 and 59.
+
+### returns {-}
+
+The function returns a list of 2 integers: the morning_hour and the morning_minute
+
+### usage {-}
+
+```php
+list <- get_morning_departure_time()
+```
+
+## get_evening_departure_time()
+This function is used to get a departure time for the agent to leave office to home for the purpose of resting. \index{Functions! random...! get evening departure time} 
+
+
+
+### arguments {-}
+The function takes no arguments and defaults to 5 pm in the evening with a deviation of half hour. The minutes are picked by a random number between 0 and 59.
+
+### returns {-}
+The function returns a list of 2 integers: the evening_hour and the evening_minute
+
+### usage {-}
+
+```php
+list <- get_evening_departure_time()
+```
+
+## get_peers 
+
+This function is used to get the peers of an individual inhabitant. 
+
+### arguments {-}
+
+The function takes 3 arguments: `list` of inhabitatnts among from whom the peers should be selected; a constraint on how far (`float`) the inhabitants home should be located from agents owns house; a constraint on how far (`float`) the offices should be from agents own office to consider those inhabitants as peers.
+
+### returns {-}
+
+a `list` of inhabitants. 
+
+### usage {-}
+
+``` php
+do get_peers(list, float , float)
+do get_peers(inhabitants, distance, distance)
 ```

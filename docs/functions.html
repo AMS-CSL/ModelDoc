@@ -25,7 +25,7 @@
 <meta name="author" content="Srirama Bhamidipati, Erika S, Arend L">
 
 
-<meta name="date" content="2018-04-12">
+<meta name="date" content="2018-05-31">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -160,6 +160,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#returns-2"><i class="fa fa-check"></i>returns</a></li>
 <li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#usage-2"><i class="fa fa-check"></i>usage</a></li>
 </ul></li>
+<li class="chapter" data-level="4.4" data-path="functions.html"><a href="functions.html#execute_a_behavior"><i class="fa fa-check"></i><b>4.4</b> execute_a_behavior()</a></li>
+<li class="chapter" data-level="4.5" data-path="functions.html"><a href="functions.html#choose_behavior"><i class="fa fa-check"></i><b>4.5</b> choose_behavior()</a><ul>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#arguments-3"><i class="fa fa-check"></i>arguments</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#returns-3"><i class="fa fa-check"></i>returns</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#usage-3"><i class="fa fa-check"></i>usage</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="functions.html"><a href="functions.html#get_morning_departure_time"><i class="fa fa-check"></i><b>4.6</b> get_morning_departure_time()</a><ul>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#arguments-4"><i class="fa fa-check"></i>arguments</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#returns-4"><i class="fa fa-check"></i>returns</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#usage-4"><i class="fa fa-check"></i>usage</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="functions.html"><a href="functions.html#get_evening_departure_time"><i class="fa fa-check"></i><b>4.7</b> get_evening_departure_time()</a><ul>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#arguments-5"><i class="fa fa-check"></i>arguments</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#returns-5"><i class="fa fa-check"></i>returns</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#usage-5"><i class="fa fa-check"></i>usage</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="functions.html"><a href="functions.html#get_peers"><i class="fa fa-check"></i><b>4.8</b> get_peers</a><ul>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#arguments-6"><i class="fa fa-check"></i>arguments</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#returns-6"><i class="fa fa-check"></i>returns</a></li>
+<li class="chapter" data-level="" data-path="functions.html"><a href="functions.html#usage-6"><i class="fa fa-check"></i>usage</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="reflexes.html"><a href="reflexes.html"><i class="fa fa-check"></i><b>5</b> Reflexes</a></li>
 <li class="chapter" data-level="6" data-path="displays.html"><a href="displays.html"><i class="fa fa-check"></i><b>6</b> Displays</a></li>
@@ -206,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="returns" class="section level3 unnumbered">
 <h3>returns</h3>
 <ul>
-<li>nothing : the function returns nothing, it just updates an existing variable.</li>
+<li>empty</li>
 </ul>
 </div>
 <div id="usage" class="section level3 unnumbered">
@@ -239,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="returns-1" class="section level3 unnumbered">
 <h3>returns</h3>
 <ul>
-<li>nothing</li>
+<li>empty</li>
 </ul>
 </div>
 <div id="usage-1" class="section level3 unnumbered">
@@ -270,12 +291,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="returns-2" class="section level3 unnumbered">
 <h3>returns</h3>
 <ul>
-<li>nothing</li>
+<li>empty</li>
 </ul>
 </div>
 <div id="usage-2" class="section level3 unnumbered">
 <h3>usage</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">do</span> morning_movement<span class="ot">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">do</span> morning_movement;</a></code></pre></div>
+</div>
+</div>
+<div id="execute_a_behavior" class="section level2">
+<h2><span class="header-section-number">4.4</span> execute_a_behavior()</h2>
+<p>This function executes a behavior depending on the return value from the function <em>choose_behavior()</em>. </p>
+</div>
+<div id="choose_behavior" class="section level2">
+<h2><span class="header-section-number">4.5</span> choose_behavior()</h2>
+<p>This function determines which of the four behaviours an agent should follow. This is based on the thresholds for the four quadrants in the consumat format. </p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">string</span> choose_behavior<span class="ot">(</span><span class="kw">float</span> satisfaction_factor<span class="ot">,</span> <span class="kw">float</span> uncertainty_factor<span class="ot">)</span>{</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">        <span class="kw">if</span> <span class="ot">(</span>satisfaction_factor &gt; <span class="fl">0.5</span><span class="ot">)</span> <span class="kw">and</span> <span class="ot">(</span>uncertainty_factor &lt;= <span class="fl">0.5</span><span class="ot">)</span>{</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">            <span class="kw">return</span> <span class="st">&quot;repeat&quot;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">        } <span class="kw">else</span> <span class="kw">if</span> <span class="ot">(</span>satisfaction_factor &gt; <span class="fl">0.5</span><span class="ot">)</span> <span class="kw">and</span> <span class="ot">(</span>uncertainty_factor &gt; <span class="fl">0.5</span><span class="ot">)</span>{</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">            <span class="kw">return</span> <span class="st">&quot;imitate&quot;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">        } <span class="kw">else</span> <span class="kw">if</span> <span class="ot">(</span>satisfaction_factor &lt;= <span class="fl">0.5</span><span class="ot">)</span> <span class="kw">and</span> <span class="ot">(</span>uncertainty_factor &lt;= <span class="fl">0.5</span><span class="ot">)</span>{</a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">            <span class="kw">return</span> <span class="st">&quot;optimize&quot;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">        }</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">                    </a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">        <span class="kw">return</span> <span class="st">&quot;inquire&quot;</span><span class="ot">;</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">    }</a></code></pre></div>
+<div id="arguments-3" class="section level3 unnumbered">
+<h3>arguments</h3>
+<ul>
+<li>It takes two arguments: satisfaction (<code>float</code>) and unertainty (<code>float</code>) as float values.</li>
+</ul>
+</div>
+<div id="returns-3" class="section level3 unnumbered">
+<h3>returns</h3>
+<ul>
+<li>It returns a string among [“repeat”, “imitate”, “optimize”, “inquire”].</li>
+</ul>
+</div>
+<div id="usage-3" class="section level3 unnumbered">
+<h3>usage</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb8-1" data-line-number="1">behavior &lt;- choose_behavior<span class="ot">(</span><span class="kw">float</span><span class="ot">,</span> <span class="kw">float</span><span class="ot">)</span></a></code></pre></div>
+</div>
+</div>
+<div id="get_morning_departure_time" class="section level2">
+<h2><span class="header-section-number">4.6</span> get_morning_departure_time()</h2>
+<p>This function is used to get a departure time for the agent to leave home to office for the purpose of work. </p>
+<div id="arguments-4" class="section level3 unnumbered">
+<h3>arguments</h3>
+<p>The function takes no arguments and defaults to 8 am in the morning with a deviation of half hour. The minutes are picked by a random number between 0 and 59.</p>
+</div>
+<div id="returns-4" class="section level3 unnumbered">
+<h3>returns</h3>
+<p>The function returns a list of 2 integers: the morning_hour and the morning_minute</p>
+</div>
+<div id="usage-4" class="section level3 unnumbered">
+<h3>usage</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">list</span> &lt;- get_morning_departure_time<span class="ot">()</span></a></code></pre></div>
+</div>
+</div>
+<div id="get_evening_departure_time" class="section level2">
+<h2><span class="header-section-number">4.7</span> get_evening_departure_time()</h2>
+<p>This function is used to get a departure time for the agent to leave office to home for the purpose of resting. </p>
+<div id="arguments-5" class="section level3 unnumbered">
+<h3>arguments</h3>
+<p>The function takes no arguments and defaults to 5 pm in the evening with a deviation of half hour. The minutes are picked by a random number between 0 and 59.</p>
+</div>
+<div id="returns-5" class="section level3 unnumbered">
+<h3>returns</h3>
+<p>The function returns a list of 2 integers: the evening_hour and the evening_minute</p>
+</div>
+<div id="usage-5" class="section level3 unnumbered">
+<h3>usage</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">list</span> &lt;- get_evening_departure_time<span class="ot">()</span></a></code></pre></div>
+</div>
+</div>
+<div id="get_peers" class="section level2">
+<h2><span class="header-section-number">4.8</span> get_peers</h2>
+<p>This function is used to get the peers of an individual inhabitant.</p>
+<div id="arguments-6" class="section level3 unnumbered">
+<h3>arguments</h3>
+<p>The function takes 3 arguments: <code>list</code> of inhabitatnts among from whom the peers should be selected; a constraint on how far (<code>float</code>) the inhabitants home should be located from agents owns house; a constraint on how far (<code>float</code>) the offices should be from agents own office to consider those inhabitants as peers.</p>
+</div>
+<div id="returns-6" class="section level3 unnumbered">
+<h3>returns</h3>
+<p>a <code>list</code> of inhabitants.</p>
+</div>
+<div id="usage-6" class="section level3 unnumbered">
+<h3>usage</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode php"><code class="sourceCode php"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">do</span> get_peers<span class="ot">(</span><span class="kw">list</span><span class="ot">,</span> <span class="kw">float</span> <span class="ot">,</span> <span class="kw">float</span><span class="ot">)</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">do</span> get_peers<span class="ot">(</span>inhabitants<span class="ot">,</span> distance<span class="ot">,</span> distance<span class="ot">)</span></a></code></pre></div>
 
 </div>
 </div>

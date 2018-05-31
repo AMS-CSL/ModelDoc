@@ -2,6 +2,9 @@
 title: "GAMA Model Documentation"
 author: "Srirama Bhamidipati, Erika S, Arend L"
 date: "`r Sys.Date()`"
+header-includes:
+  - \usepackage{tikz}
+  - \usetikzlibrary{shapes.geometric, arrows}}
 cover-image: cover.png
 output: 
   bookdown::gitbook:
@@ -23,6 +26,10 @@ knitr::include_graphics('cover.png', dpi = NA)
 ```
 
 # Background {-}
+
+
+
+
 
 It is expected that in 2030 about 5 billion people will live in cities as compared to the 3.6 billion now. This massive growth challenges the liveability   of   urban   environments.   Designing   sustainable   cities attractive to tourists, industry and commercial organizations as well as pleasant to live in, requires a thorough understanding of urban dynamics and the role of individual and collective human decision- making within this.
 

@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-04-12}
+  \date{2018-05-31}
 
 \usepackage{makeidx}
 \makeindex
@@ -282,7 +282,8 @@ is based on its usage. Curerntly the model only distinguishes between
 Agent memory on travel time is updated every day based on its experience
 today. The agent uses last five days of memory to estimate the next days
 travel time. This memory is mode specific. In this model, agent has 4
-memories {[}walk, bike, pt, car{]}. \index{update! update memory}
+memories {[}walk, bike, pt, car{]}.
+\index{Functions! update...! update memory}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -316,8 +317,7 @@ memories {[}walk, bike, pt, car{]}. \index{update! update memory}
 \begin{itemize}
 \tightlist
 \item
-  nothing : the function returns nothing, it just updates an existing
-  variable.
+  empty
 \end{itemize}
 
 \hypertarget{usage}{%
@@ -340,7 +340,7 @@ memories {[}walk, bike, pt, car{]}. \index{update! update memory}
 \section{evening\_movement()}\label{evening_movement}}
 
 This function makes the agent move from office to home in the evening.
-\index{movement! evening}
+\index{Functions! movement...! evening}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -374,7 +374,7 @@ This function makes the agent move from office to home in the evening.
 \begin{itemize}
 \tightlist
 \item
-  nothing
+  empty
 \end{itemize}
 
 \hypertarget{usage-1}{%
@@ -392,7 +392,7 @@ This function makes the agent move from office to home in the evening.
 \section{morning\_movement()}\label{morning_movement}}
 
 This function makes the agent move from office to home in the evening.
-\index{movement! morning}
+\index{Functions! movement...! morning}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -426,7 +426,7 @@ This function makes the agent move from office to home in the evening.
 \begin{itemize}
 \tightlist
 \item
-  nothing
+  empty
 \end{itemize}
 
 \hypertarget{usage-2}{%
@@ -435,7 +435,166 @@ This function makes the agent move from office to home in the evening.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{do}\NormalTok{ morning_movement}\OtherTok{;}
+\KeywordTok{do}\NormalTok{ morning_movement;}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{execute_a_behavior}{%
+\section{execute\_a\_behavior()}\label{execute_a_behavior}}
+
+This function executes a behavior depending on the return value from the
+function \emph{choose\_behavior()}.
+\index{Functions! behavior...! execute}
+
+\hypertarget{choose_behavior}{%
+\section{choose\_behavior()}\label{choose_behavior}}
+
+This function determines which of the four behaviours an agent should
+follow. This is based on the thresholds for the four quadrants in the
+consumat format. \index{Functions! behavior...! choose}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{string}\NormalTok{ choose_behavior}\OtherTok{(}\KeywordTok{float}\NormalTok{ satisfaction_factor}\OtherTok{,} \KeywordTok{float}\NormalTok{ uncertainty_factor}\OtherTok{)}\NormalTok{\{}
+
+        \KeywordTok{if} \OtherTok{(}\NormalTok{satisfaction_factor > }\FloatTok{0.5}\OtherTok{)} \KeywordTok{and} \OtherTok{(}\NormalTok{uncertainty_factor <= }\FloatTok{0.5}\OtherTok{)}\NormalTok{\{}
+            \KeywordTok{return} \StringTok{"repeat"}\OtherTok{;}
+\NormalTok{        \} }\KeywordTok{else} \KeywordTok{if} \OtherTok{(}\NormalTok{satisfaction_factor > }\FloatTok{0.5}\OtherTok{)} \KeywordTok{and} \OtherTok{(}\NormalTok{uncertainty_factor > }\FloatTok{0.5}\OtherTok{)}\NormalTok{\{}
+            \KeywordTok{return} \StringTok{"imitate"}\OtherTok{;}
+\NormalTok{        \} }\KeywordTok{else} \KeywordTok{if} \OtherTok{(}\NormalTok{satisfaction_factor <= }\FloatTok{0.5}\OtherTok{)} \KeywordTok{and} \OtherTok{(}\NormalTok{uncertainty_factor <= }\FloatTok{0.5}\OtherTok{)}\NormalTok{\{}
+            \KeywordTok{return} \StringTok{"optimize"}\OtherTok{;}
+\NormalTok{        \}}
+                    
+        \KeywordTok{return} \StringTok{"inquire"}\OtherTok{;}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{arguments-3}{%
+\subsection*{arguments}\label{arguments-3}}
+\addcontentsline{toc}{subsection}{arguments}
+
+\begin{itemize}
+\tightlist
+\item
+  It takes two arguments: satisfaction (\texttt{float}) and unertainty
+  (\texttt{float}) as float values.
+\end{itemize}
+
+\hypertarget{returns-3}{%
+\subsection*{returns}\label{returns-3}}
+\addcontentsline{toc}{subsection}{returns}
+
+\begin{itemize}
+\tightlist
+\item
+  It returns a string among {[}``repeat'', ``imitate'', ``optimize'',
+  ``inquire''{]}.
+\end{itemize}
+
+\hypertarget{usage-3}{%
+\subsection*{usage}\label{usage-3}}
+\addcontentsline{toc}{subsection}{usage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{behavior <- choose_behavior}\OtherTok{(}\KeywordTok{float}\OtherTok{,} \KeywordTok{float}\OtherTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{get_morning_departure_time}{%
+\section{get\_morning\_departure\_time()}\label{get_morning_departure_time}}
+
+This function is used to get a departure time for the agent to leave
+home to office for the purpose of work.
+\index{Functions! random...! get morning departure time}
+
+\hypertarget{arguments-4}{%
+\subsection*{arguments}\label{arguments-4}}
+\addcontentsline{toc}{subsection}{arguments}
+
+The function takes no arguments and defaults to 8 am in the morning with
+a deviation of half hour. The minutes are picked by a random number
+between 0 and 59.
+
+\hypertarget{returns-4}{%
+\subsection*{returns}\label{returns-4}}
+\addcontentsline{toc}{subsection}{returns}
+
+The function returns a list of 2 integers: the morning\_hour and the
+morning\_minute
+
+\hypertarget{usage-4}{%
+\subsection*{usage}\label{usage-4}}
+\addcontentsline{toc}{subsection}{usage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{list}\NormalTok{ <- get_morning_departure_time}\OtherTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{get_evening_departure_time}{%
+\section{get\_evening\_departure\_time()}\label{get_evening_departure_time}}
+
+This function is used to get a departure time for the agent to leave
+office to home for the purpose of resting.
+\index{Functions! random...! get evening departure time}
+
+\hypertarget{arguments-5}{%
+\subsection*{arguments}\label{arguments-5}}
+\addcontentsline{toc}{subsection}{arguments}
+
+The function takes no arguments and defaults to 5 pm in the evening with
+a deviation of half hour. The minutes are picked by a random number
+between 0 and 59.
+
+\hypertarget{returns-5}{%
+\subsection*{returns}\label{returns-5}}
+\addcontentsline{toc}{subsection}{returns}
+
+The function returns a list of 2 integers: the evening\_hour and the
+evening\_minute
+
+\hypertarget{usage-5}{%
+\subsection*{usage}\label{usage-5}}
+\addcontentsline{toc}{subsection}{usage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{list}\NormalTok{ <- get_evening_departure_time}\OtherTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{get_peers}{%
+\section{get\_peers}\label{get_peers}}
+
+This function is used to get the peers of an individual inhabitant.
+
+\hypertarget{arguments-6}{%
+\subsection*{arguments}\label{arguments-6}}
+\addcontentsline{toc}{subsection}{arguments}
+
+The function takes 3 arguments: \texttt{list} of inhabitatnts among from
+whom the peers should be selected; a constraint on how far
+(\texttt{float}) the inhabitants home should be located from agents owns
+house; a constraint on how far (\texttt{float}) the offices should be
+from agents own office to consider those inhabitants as peers.
+
+\hypertarget{returns-6}{%
+\subsection*{returns}\label{returns-6}}
+\addcontentsline{toc}{subsection}{returns}
+
+a \texttt{list} of inhabitants.
+
+\hypertarget{usage-6}{%
+\subsection*{usage}\label{usage-6}}
+\addcontentsline{toc}{subsection}{usage}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{do}\NormalTok{ get_peers}\OtherTok{(}\KeywordTok{list}\OtherTok{,} \KeywordTok{float} \OtherTok{,} \KeywordTok{float}\OtherTok{)}
+\KeywordTok{do}\NormalTok{ get_peers}\OtherTok{(}\NormalTok{inhabitants}\OtherTok{,}\NormalTok{ distance}\OtherTok{,}\NormalTok{ distance}\OtherTok{)}
 \end{Highlighting}
 \end{Shaded}
 
